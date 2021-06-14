@@ -10004,7 +10004,7 @@ h3 {
     font-weight: bold;
     background: #ffffff;
     border: none;
-    border-radius: 26px;
+    margin-top: 0px;
 }
 .card{
     margin-top: 65px;
@@ -10014,7 +10014,6 @@ h3 {
     width: 650px;
     height: 835px;
     background: #ffffff;
-    border-radius: 26px;
 }
 .texts{
     color: #939393;
@@ -10052,4 +10051,42 @@ h3 {
     height: 47px;
     border: none;
     font-family: "Segoe UI"
+}
+.user{
+    margin-left: -280px;
+    width: 1650px;
+    height: 835px;
+    background: #ffffff;
+}
+.row {
+    display:flex;
+    flex-wrap:wrap;
+}
+
+.map, .cont {
+    flex-grow: 1;
+    height:300px;
+    width: 500px;
+    text-align: center;
+}
+.personalInfo{
+    margin-top: 10px;
+    color: #1f1f1f;
+    font-size: 12px;
+    text-indent: 1.5em;
+    border-radius: 15px 15px 15px 15px;
+    background: #ecf3f5;
+    width: 640px;
+    height: 47px;
+    border: none;
+    font-family: "Segoe UI"
+}
+.info{
+    color: #2063b0;
+    font-size: 28px;
+    text-align: center;
+    font-weight: bold;
+    background: #ffffff;
+    border: none;
+    margin-top: 10px;
 }
