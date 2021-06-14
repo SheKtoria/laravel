@@ -594,7 +594,6 @@ pre code {
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;
-
 }
 
 .col {
@@ -10005,7 +10004,7 @@ h3 {
     font-weight: bold;
     background: #ffffff;
     border: none;
-    margin-top: 0px;
+    border-radius: 26px;
 }
 .card{
     margin-top: 65px;
@@ -10015,6 +10014,7 @@ h3 {
     width: 650px;
     height: 835px;
     background: #ffffff;
+    border-radius: 26px;
 }
 .texts{
     color: #939393;
@@ -10043,7 +10043,7 @@ h3 {
 }
 .field{
     color: #1f1f1f;
-    font-size: 15px;
+    font-size: 12px;
     margin-top: -7px;
     text-indent: 1.5em;
     border-radius: 15px 15px 15px 15px;
@@ -10052,63 +10052,4 @@ h3 {
     height: 47px;
     border: none;
     font-family: "Segoe UI"
-}
-.user{
-    margin-left: -280px;
-    width: 1650px;
-    height: 835px;
-    background: #ffffff;
-}
-.row {
-    display:flex;
-    flex-wrap:wrap;
-}
-
-.map, .cont {
-    flex-grow: 1;
-    height:300px;
-    width: 500px;
-    text-align: center;
-}
-.personalInfo{
-    margin-left: 40px;
-    color: #1f1f1f;
-    font-size: 16px;
-    text-indent: 1.5em;
-    border-radius: 15px 15px 15px 15px;
-    background: #ecf3f5;
-    width: 640px;
-    height: 37px;
-    border: none;
-    font-family: "Segoe UI";
-}
-.info{
-    color: #2063b0;
-    font-size: 28px;
-    text-align: center;
-    font-weight: bold;
-    background: #ffffff;
-    border: none;
-    margin-top: 10px;
-}
-.titles {
-    color: #939393;
-    margin-left: -650px!important;
-    margin-left: 20px;
-    padding: 5px;
-}
-
-.card-header-edit{
-    color: #2063b0;
-    font-size: 30px;
-    text-align: center;
-    font-weight: bold;
-    background: #ffffff;
-    border: none;
-    margin-top: 40px;
-    margin-bottom: 90px!important;
-}
-.edit{
-    margin-top: 10px!important;
-    margin-left: 215px!important;
 }
