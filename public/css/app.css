@@ -594,6 +594,7 @@ pre code {
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;
+
 }
 
 .col {
@@ -10042,7 +10043,7 @@ h3 {
 }
 .field{
     color: #1f1f1f;
-    font-size: 12px;
+    font-size: 15px;
     margin-top: -7px;
     text-indent: 1.5em;
     border-radius: 15px 15px 15px 15px;
@@ -10070,16 +10071,16 @@ h3 {
     text-align: center;
 }
 .personalInfo{
-    margin-top: 10px;
+    margin-left: 40px;
     color: #1f1f1f;
-    font-size: 12px;
+    font-size: 16px;
     text-indent: 1.5em;
     border-radius: 15px 15px 15px 15px;
     background: #ecf3f5;
     width: 640px;
-    height: 47px;
+    height: 37px;
     border: none;
-    font-family: "Segoe UI"
+    font-family: "Segoe UI";
 }
 .info{
     color: #2063b0;
@@ -10089,4 +10090,25 @@ h3 {
     background: #ffffff;
     border: none;
     margin-top: 10px;
+}
+.titles {
+    color: #939393;
+    margin-left: -650px!important;
+    margin-left: 20px;
+    padding: 5px;
+}
+
+.card-header-edit{
+    color: #2063b0;
+    font-size: 30px;
+    text-align: center;
+    font-weight: bold;
+    background: #ffffff;
+    border: none;
+    margin-top: 40px;
+    margin-bottom: 90px!important;
+}
+.edit{
+    margin-top: 10px!important;
+    margin-left: 215px!important;
 }
