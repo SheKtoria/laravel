@@ -15,12 +15,12 @@ class CreatePersonalInfoTable extends Migration
     {
         Schema::create('personal_info', function (Blueprint $table) {
             $table->id();
-            $table->string('first_name');
-            $table->string('last_name');
-            $table->string('birthday');
-            $table->string('address');
-            $table->string('phone_number');
-            $table->string('ex_information');
+            $table->string('first_name')->nullable($value = true);
+            $table->string('last_name')->nullable($value = true);
+            $table->string('birthday')->nullable($value = true);
+            $table->string('address')->nullable($value = true);
+            $table->string('phone_number')->nullable($value = true);
+            $table->string('ex_information')->nullable($value = true);
             $table->unsignedBigInteger('user_id')->unique();
             $table->foreign('user_id')->references('id')->on('users');
         });

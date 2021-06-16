@@ -20,3 +20,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/update', [App\Http\Controllers\HomeController::class, 'showUpdateInfo']);
+Route::post('update', [App\Http\Controllers\HomeController::class, 'updateInfo']);
+Route::get('/newobject', [App\Http\Controllers\ObjectController::class, 'index']);
+Route::post('newobject', [App\Http\Controllers\ObjectController::class, 'addObject']);
+Route::get('/map', [App\Http\Controllers\MapController::class, 'index'])->name('map');

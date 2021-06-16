@@ -1,17 +1,16 @@
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
 <div class="card">
-    <div class="card-header-edit">{{ __('Edit your personal information') }}</div>
+    <div class="card-header-edit">{{ __('Add new object to base') }}</div>
     <div class="card-body">
 
         <form method="POST" action="">
             @csrf
-            @foreach ($data as $user)
                 <div class="form-group row">
-                    <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('First Name') }}</label>
+                    <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Object Name') }}</label>
 
                     <div class="col-md-6 ">
-                        <input class="form-control field firstName" name="firstName" type="text" value="{{$user->first_name}}">
+                        <input class="form-control field firstName" name="firstName" type="text" value="">
                         @error('firstName')
                         <span role="alert">
                                         <strong>{{ $message }}</strong>
@@ -20,10 +19,10 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Last Name') }}</label>
+                    <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Destination') }}</label>
 
                     <div class="col-md-6 ">
-                        <input class=" form-control field lastName" name="lastName" type="text" value="{{$user->last_name}}">
+                        <input class=" form-control field lastName" name="lastName" type="text" value="">
                         @error('lastName')
                         <span role="alert">
                                         <strong>{{ $message }}</strong>
@@ -32,19 +31,19 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Birthday') }}</label>
+                    <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Contact information') }}</label>
 
                     <div class="col-md-6 ">
-                        <input class="birthday form-control field" name="birthday" type="date"
-                               value="{{$user->birthday}}">
+                        <input class="birthday form-control field" name="birthday" type="text"
+                               value="">
 
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Address') }}</label>
+                    <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Other information') }}</label>
 
                     <div class="col-md-6 ">
-                        <input class="address form-control field" name="address" type="text" value="{{$user->address}}">
+                        <input class="address form-control field" name="address" type="text" value="">
                         @error('address')
                         <span role="alert">
                                         <strong>{{ $message }}</strong>
@@ -53,10 +52,10 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Phone Number') }}</label>
+                    <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Type') }}</label>
 
                     <div class="col-md-6 ">
-                        <input class="number form-control field" name="number" type="text" value="{{$user->phone_number}}">
+                        <input class="number form-control field" name="number" type="text" value="">
                         @error('number')
                         <span role="alert">
                                         <strong>{{ $message }}</strong>
@@ -65,16 +64,6 @@
                     </div>
 
                 </div>
-                <div class="form-group row">
-                    <label for="name"
-                           class="col-md-4 col-form-label text-md-right">{{ __('Other Information') }}</label>
-
-                    <div class="col-md-6 ">
-                        <input class="other form-control field" name="other" type="text" value="{{$user->ex_information}}">
-
-                    </div>
-                </div>
-            @endforeach
             <button type="submit" class="button edit">Edit</button>
         </form>
     </div>

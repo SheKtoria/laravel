@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\DB;
 
 class PersonalInfo extends Model
 {
+    public $timestamps = false;
+    protected $fillable = ['user_id'];
     protected $table = 'personal_info';
     public function updateById($id, $data = array())
     {
