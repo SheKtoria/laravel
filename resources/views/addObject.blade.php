@@ -6,64 +6,62 @@
 
         <form method="POST" action="">
             @csrf
-                <div class="form-group row">
-                    <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Object Name') }}</label>
+            <div class="form-group row">
+                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Object Name') }}</label>
 
-                    <div class="col-md-6 ">
-                        <input class="form-control field firstName" name="firstName" type="text" value="">
-                        @error('firstName')
-                        <span role="alert">
+                <div class="col-md-6 ">
+                    <input class=" form-control field objectName" name="objectName" type="text" value="">
+                    @error('objectName')
+                    <span role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                        @enderror
-                    </div>
+                    @enderror
                 </div>
-                <div class="form-group row">
-                    <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Destination') }}</label>
+            </div>
+            <div class="form-group row">
+                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Destination') }}</label>
 
-                    <div class="col-md-6 ">
-                        <input class=" form-control field lastName" name="lastName" type="text" value="">
-                        @error('lastName')
-                        <span role="alert">
+                <div class="col-md-6 ">
+                    <input class=" form-control field destination" name="destination" type="text" value="">
+                    @error('destination')
+                    <span role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                        @enderror
-                    </div>
+                    @enderror
                 </div>
-                <div class="form-group row">
-                    <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Contact information') }}</label>
+            </div>
+            <div class="form-group row">
+                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Contact information') }}</label>
 
-                    <div class="col-md-6 ">
-                        <input class="birthday form-control field" name="birthday" type="text"
-                               value="">
-
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Other information') }}</label>
-
-                    <div class="col-md-6 ">
-                        <input class="address form-control field" name="address" type="text" value="">
-                        @error('address')
-                        <span role="alert">
+                <div class="col-md-6 ">
+                    <input class="contact form-control field" name="contact" type="text"
+                           value="">
+                    @error('contact')
+                    <span role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                        @enderror
-                    </div>
+                    @enderror
                 </div>
-                <div class="form-group row">
-                    <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Type') }}</label>
+            </div>
+            <div class="form-group row">
+                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Other information') }}</label>
+                <div class="col-md-6 ">
+                    <input class="otherInfo form-control field" name="otherInfo" type="text" value="">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Type') }}</label>
 
-                    <div class="col-md-6 ">
-                        <input class="number form-control field" name="number" type="text" value="">
-                        @error('number')
-                        <span role="alert">
+                <div class="col-md-6 ">
+                    <input class="type form-control field" name="type" type="text" value="">
+                    @error('type')
+                    <span role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                        @enderror
-                    </div>
-
+                    @enderror
                 </div>
+
+            </div>
             <button type="submit" class="button edit">Edit</button>
         </form>
     </div>

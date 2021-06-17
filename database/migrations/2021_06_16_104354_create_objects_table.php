@@ -20,6 +20,7 @@ class CreateObjectsTable extends Migration
             $table->string('contact_info')->nullable($value = true);
             $table->string('type')->nullable($value = true);
             $table->string('other_info')->nullable($value = true);
+            $table->string('status')->default('save');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
         });

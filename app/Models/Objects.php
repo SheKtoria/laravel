@@ -10,4 +10,8 @@ class Objects extends Model
     public $timestamps = false;
     protected $fillable = ['user_id'];
     protected $table = 'objects';
+    public function users()
+    {
+        return $this->belongsTo(\App\Models\User::class, 'user_id');
+    }
 }

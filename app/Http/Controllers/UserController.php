@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ObjectRequest;
 use App\Models\PersonalInfo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class HomeController extends Controller
+class UserController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -27,15 +28,15 @@ class HomeController extends Controller
     {
         $user = auth()->user();
         $id = $user->id;
-        $users = DB::table('personal_info')->where('user_id', $id)->get();
+        $users = PersonalInfo::where('user_id', $id)->get();
         return view('home', ['users' => $users]);
     }
 
-    public function showUpdateInfo()
+    public function showUpdateInfo(ObjectRequest $request)
     {
         $user = auth()->user();
         $id = $user->id;
-        $data = DB::table('personal_info')->where('user_id', $id)->get();
+        $data = PersonalInfo::where('user_id', $id)->get();
         return view('update', ['data' => $data]);
     }
 
@@ -43,14 +44,7 @@ class HomeController extends Controller
     {
         $user = auth()->user();
         $id = $user->id;
-        $dataCandidats = new PersonalInfo();
-        $validated = $request->validate([
-            'number'    => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|max:11',
-            'firstName' => 'required|string|min:1|max:15',
-            'lastName'  => 'required|string|min:1|max:15',
-            'address'   => 'required|regex:/(^[-0-9A-Za-z.,\/ ]+$)/',
-        ]);
-        $dataCandidats->updateById($id, array(
+        PersonalInfo::where('user_id', $id)->update(array(
                 'first_name'     => $request->input('firstName'),
                 'last_name'      => $request->input('lastName'),
                 'birthday'       => $request->input('birthday'),
