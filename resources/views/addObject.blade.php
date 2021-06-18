@@ -50,15 +50,14 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Type') }}</label>
+                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Category') }}</label>
 
                 <div class="col-md-6 ">
-                    <input class="type form-control field" name="type" type="text" value="">
-                    @error('type')
-                    <span role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                    @enderror
+                    <select class="selectCategory" size="1" name="selectCategory">
+                        @foreach ($categories as $category)
+                        <option class="optionCategory"> {{$category->category}}</option>
+                        @endforeach
+                    </select>
                 </div>
 
             </div>

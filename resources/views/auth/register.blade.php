@@ -5,10 +5,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card">
-                    <div class="picture">
-                        <img src="image/image.png" width="260" height="200">
-                    </div>
+                <div class="card register">
                     <div class="card-header">{{ __('SIGN UP') }}</div>
                     <div class="texts">{{ __('Register your new account') }}</div>
 
@@ -17,7 +14,7 @@
                             @csrf
 
                             <div class="form-group row">
-                                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                                <label for="name" class="col-md-4 col-form-label registerLable text-md-right">{{ __('Name') }}</label>
 
                                 <div class="col-md-6 ">
                                     <input id="name" type="text"
@@ -34,7 +31,7 @@
 
                             <div class="form-group row">
                                 <label for="email"
-                                       class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                                       class="col-md-4 col-form-label text-md-right registerLable">{{ __('E-Mail Address') }}</label>
 
                                 <div class="col-md-6 ">
                                     <input id="email" type="email"
@@ -51,7 +48,7 @@
 
                             <div class="form-group row">
                                 <label for="password"
-                                       class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                                       class="col-md-4 col-form-label text-md-right registerLable">{{ __('Password') }}</label>
 
                                 <div class="col-md-6 ">
                                     <input id="password" type="password"
@@ -68,7 +65,7 @@
 
                             <div class="form-group row">
                                 <label for="password-confirm"
-                                       class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+                                       class="col-md-4 col-form-label text-md-right registerLable">{{ __('Confirm Password') }}</label>
 
                                 <div class="col-md-6 ">
                                     <input id="password-confirm" type="password" class="form-control field"

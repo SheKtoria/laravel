@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ObjectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,10 +22,12 @@ Route::get('/', [App\Http\Controllers\ObjectController::class, 'welcome']);
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\UserController::class, 'index'])->name('home');
-Route::get('/update', [App\Http\Controllers\UserController::class, 'showUpdateInfo']);
-Route::post('update', [App\Http\Controllers\UserController::class, 'updateInfo']);
-Route::get('/newobject', [App\Http\Controllers\ObjectController::class, 'index']);
-Route::post('newobject', [App\Http\Controllers\ObjectController::class, 'addObject']);
-Route::get('/map', [App\Http\Controllers\MapController::class, 'index'])->name('map');
-Route::post('change', [App\Http\Controllers\ObjectController::class, 'changeStatus']);
+Route::get('/home', [UserController::class, 'index'])->name('home');
+Route::get('/update', [UserController::class, 'showUpdateInfo']);
+Route::post('update', [UserController::class, 'updateInfo']);
+Route::get('/newobject', [ObjectController::class, 'index']);
+Route::post('newobject', [ObjectController::class, 'addObject']);
+Route::get('/change', [ObjectController::class, 'changeStatus']);
+Route::get('/sorting/{type}', [ObjectController::class, 'sorting']);
+Route::get('/main/{category}', [ObjectController::class, 'category']);
+

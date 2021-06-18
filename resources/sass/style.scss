@@ -1,0 +1,238 @@
+body{
+    background-color: #1d2124;
+}
+.card-header {
+    color: #a493b9;
+    font-size: 58px;
+    text-align: center;
+    font-weight: bold;
+    background: #2e2938;
+    border: none;
+    border-radius: 15px;
+    margin-top: 0px;
+}
+
+.card {
+    margin-top: 65px;
+    margin-bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 650px;
+    height: 835px;
+    border-radius: 15px!important;
+    background: #1d2124;
+}
+
+.texts, .textsLogin{
+    color: #939393;
+    margin-left: 280px;
+    margin-top: -25px;
+    font-family: "Segoe UI";
+    font-size: 15px;
+}
+.textsLogin{
+    margin-left: 295px;
+}
+.picture {
+    margin-left: 200px;
+}
+
+.button {
+    display: inline-block;
+    font-size: 18px;
+    padding: 7px;
+    width: 174px;
+    display: inline-block;
+    border: none;
+    border-radius: 15px;
+    background: #9985b4;
+    color: aliceblue;
+    font-family: "Segoe UI";
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.field {
+    color: #dfdaee;
+    font-size: 15px;
+    margin-top: -7px;
+    text-indent: 1.5em;
+    border-radius: 15px 15px 15px 15px;
+    background: #1d2124;
+    width: 340px;
+    height: 47px;
+    border: none;
+    font-family: "Segoe UI"
+}
+.field:focus{
+    color: #dfdaee;
+    font-size: 15px;
+    margin-top: -7px;
+    text-indent: 1.5em;
+    border-radius: 15px 15px 15px 15px;
+    background: #1d2124;
+    width: 340px;
+    height: 47px;
+    border: none;
+    font-family: "Segoe UI"
+}
+.user {
+    margin-left: -280px;
+    width: 1650px;
+    height: 835px;
+    background: #2e2938;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.map, .cont {
+    flex-grow: 1;
+    height: 300px;
+    width: 500px;
+    text-align: center;
+}
+
+.personalInfo {
+    margin-left: 40px;
+    color: #1f1f1f;
+    font-size: 16px;
+    text-indent: 1.5em;
+    border-radius: 15px 15px 15px 15px;
+    background: #625376;
+    width: 640px;
+    height: 37px;
+    border: none;
+    font-family: "Segoe UI";
+}
+
+.info {
+    color: #a493b9;
+    font-size: 28px;
+    text-align: center;
+    font-weight: bold;
+    background: #3d374c;
+    border: 1px solid #3d374c;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.titles {
+    color: #939393;
+    margin-left: -650px !important;
+    margin-left: 20px;
+    padding: 5px;
+}
+
+.card-header-edit {
+    color: #a493b9;
+    font-size: 30px;
+    text-align: center;
+    font-weight: bold;
+    background: #ffffff;
+    border: none;
+    margin-top: 40px;
+    margin-bottom: 90px !important;
+}
+
+.edit {
+    margin-top: 10px !important;
+    margin-left: 215px !important;
+}
+
+.objectInfo {
+    margin-top: 25px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1450px;
+    height: 155px;
+    border-radius: 16px;
+    background-color: #625376;
+}
+
+.objectData{
+    border-radius: 16px;
+    padding: 10px;
+}
+.objectPage{
+    height: fit-content!important;
+    padding: 10px!important;
+    background-color: #2e2938 !important;
+    border-radius: 15px;
+}
+.status{
+    border: none;
+    border-radius: 16px;
+    padding: 10px;
+    width: 80px;
+    text-align: center;
+    background-color: #625376;
+}
+.objectColumns{
+    font-size: 17px;
+    margin-top: 15px;
+    margin-left: 20px;
+    font-family: "Segoe UI";
+}
+.category{
+    margin-left: 180px;
+}
+.selectCategory{
+    margin-top: -5px!important;
+    width: 340px;
+    height: 50px;
+    border: none;
+    border-radius: 15px;
+    text-align: center;
+}
+.selectOrder{
+
+    margin-top: -5px!important;
+    width: 140px;
+    height: 20px;
+    border: none;
+    background: #ecf3f5;
+    border-radius: 15px;
+    text-align: center;
+}
+.sortButton{
+    margin-top: -5px!important;
+    display: inline-block;
+    font-size: 13px;
+    width: 74px;
+    margin-left: 2px;
+    display: inline-block;
+    border: none;
+    border-radius: 15px;
+    background: #9985b4;
+    color: aliceblue;
+    font-family: "Segoe UI";
+    font-weight: bold;
+    cursor: pointer;
+}
+.select{
+    margin-left: 90px;
+}
+.edit-button{
+    margin-top: 25px;
+}
+.register{
+    background-color: #3c364b;
+    border-radius: 15px!important;
+    height: 450px;
+}
+.registerLable, .loginLable, .loginLableForgot{
+    color: #aaa4d2;
+}
+.loginLableForgot{
+
+}
+.login{
+    background-color: #3c364b;
+    border-radius: 15px!important;
+    height: 450px;
+}

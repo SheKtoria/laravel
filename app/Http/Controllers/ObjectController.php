@@ -3,6 +3,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categories;
 use App\Models\Objects;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -16,7 +17,8 @@ class ObjectController extends Controller
 
     public function index()
     {
-        return view('addObject');
+        $categories = Categories::get();
+        return view('addObject', ['categories' => $categories]);
     }
 
     public function addObject(Request $request)
@@ -26,11 +28,10 @@ class ObjectController extends Controller
         $objectName = $request->input('objectName');
         $destination = $request->input('destination');
         $contact = $request->input('contact');
-        $type = $request->input('type');
         $otherInfo = $request->input('otherInfo');
+        $category = $request->input('selectCategory');
         $validated = $request->validate([
             'contact'     => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|max:11',
-            'type'        => 'required|string|min:1|max:15',
             'objectName'  => 'required|string|min:1|max:40',
             'destination' => 'required|regex:/(^[-0-9A-Za-z.,\/ ]+$)/',
         ]);
@@ -38,9 +39,9 @@ class ObjectController extends Controller
                 'object_name'  => $objectName,
                 'destination'  => $destination,
                 'contact_info' => $contact,
-                'type'         => $type,
                 'other_info'   => $otherInfo,
-                'user_id'      => $id
+                'user_id'      => $id,
+                'category'     => $category
             )
         );
         return redirect('home');
@@ -50,18 +51,29 @@ class ObjectController extends Controller
     {
         $id = $request->input('id');
         $status = $request->input('status');
-        if ($status == 'not save') {
-           Objects::where('id', $id)->update(['status' => 'save']);
-        }elseif ($status == 'save') {
-            Objects::where('id', $id)->update(['status' => 'not save']);
-
-        }
-        $data = Objects::with('users')->get();
-        return view('/welcome', ['objects' => $data]);
+        Objects::where('id', $id)->update(['status' => $status]);
+       // $data = Objects::with('users')->get();
+        return json_encode(['message' => $status]);
 
     }
-    public function welcome(){
+
+    public function welcome()
+    {
         $data = \App\Models\Objects::with('users')->get();
-        return view('welcome', ['objects' =>$data]);
+
+        return view('welcome', ['objects' => $data]);
+    }
+
+    public function category($category)
+    {
+        $data = Objects::where('category', $category)->get();
+        if ($category == 'All') {
+            $data = Objects::get();
+        }
+        return view('welcome', ['objects' => $data]);
+    }
+    public function sorting($type){
+        $data = Objects::orderby($type)->get();
+        return view('welcome', ['objects' => $data]);
     }
 }
