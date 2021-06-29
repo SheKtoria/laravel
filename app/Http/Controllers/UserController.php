@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ObjectRequest;
-use App\Models\PersonalInfo;
+use App\Http\Requests\UserRequest;
+use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -14,10 +14,10 @@ class UserController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+//    public function __construct()
+//    {
+//        $this->middleware('auth');
+//    }
 
     /**
      * Show the application dashboard.
@@ -26,36 +26,37 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user = auth()->user();
-        $id = $user->id;
-        $users = PersonalInfo::where('user_id', $id)->get();
+        \App\Events\PublicChat::dispatch('Get my message?');
+        $id = auth()->id();
+        $users = User::find($id)->get();
         return view('home', ['users' => $users]);
     }
 
-    public function showUpdateInfo(ObjectRequest $request)
+    public function showUpdateInfo()
     {
-        $user = auth()->user();
-        $id = $user->id;
-        $data = PersonalInfo::where('user_id', $id)->get();
+        $id = auth()->id();
+        $data = User::find($id)->get();
         return view('update', ['data' => $data]);
     }
 
     public function updateInfo(Request $request)
     {
-        $user = auth()->user();
-        $id = $user->id;
-        PersonalInfo::where('user_id', $id)->update(array(
-                'first_name'     => $request->input('firstName'),
-                'last_name'      => $request->input('lastName'),
-                'birthday'       => $request->input('birthday'),
-                'address'        => $request->input('address'),
-                'phone_number'   => $request->input('number'),
-                'ex_information' => $request->input('other'),
-                'user_id'        => $id
-            )
-        );
+        $id = auth()->id();
+        $user = User::find($id);
+        $user->first_name = $request->input('firstName');
+        $user->last_name = $request->input('lastName');
+        $user->birthday = $request->input('birthday');
+        $user->address = $request->input('address');
+        $user->phone_number = $request->input('number');
+        $user->ex_information = $request->input('other');
+        $user->save();
         return redirect('home');
 
     }
 
+    public function showUsers()
+    {
+        $users = User::all();
+        return view('users', ['users' => $users]);
+    }
 }

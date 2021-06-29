@@ -18,16 +18,17 @@ use App\Http\Controllers\ObjectController;
 |
 */
 
-Route::get('/', [App\Http\Controllers\ObjectController::class, 'welcome']);
+Route::get('/', [ObjectController::class, 'welcome']);
 
 Auth::routes();
-
+Route::get('/users', [UserController::class, 'showUsers']);
 Route::get('/home', [UserController::class, 'index'])->name('home');
-Route::get('/update', [UserController::class, 'showUpdateInfo']);
+Route::get('/update', [UserController::class, 'showUpdateInfo'])->name('update');
 Route::post('update', [UserController::class, 'updateInfo']);
-Route::get('/newobject', [ObjectController::class, 'index']);
+Route::get('/newobject', [ObjectController::class, 'index'])->name('newobject');
 Route::post('newobject', [ObjectController::class, 'addObject']);
 Route::get('/change', [ObjectController::class, 'changeStatus']);
 Route::get('/sorting/{type}', [ObjectController::class, 'sorting']);
 Route::get('/main/{category}', [ObjectController::class, 'category']);
+Route::get('/chat', [ObjectController::class, 'category']);
 

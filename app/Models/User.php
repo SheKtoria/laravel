@@ -20,6 +20,12 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'first_name',
+        'last_name',
+        'birthday',
+        'address',
+        'phone_number',
+        'ex_information'
     ];
 
     /**
@@ -43,11 +49,7 @@ class User extends Authenticatable
 
     public function objects()
     {
-        return $this->hasMany(\App\Models\Objects::class, 'user_id');
+        return $this->hasMany(Objects::class, 'user_id');
     }
 
-    public function personalInfo()
-    {
-        return $this->hasOne(PersonalInfo::class);
-    }
 }

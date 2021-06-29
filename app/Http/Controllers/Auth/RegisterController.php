@@ -33,9 +33,6 @@ class RegisterController extends Controller
     protected $redirectTo = RouteServiceProvider::HOME;
     protected function redirectTo()
     {
-        $user = auth()->user();
-        $id = $user->id;
-        PersonalInfo::create(['user_id' => $id]);
         return '/home';
     }
 

@@ -21,16 +21,16 @@
                             {{ __('Shelters') }}
                         </a>
                         <a href="{{"/main/market"}}" class="category">
-                            {{ __('Shops') }}
+                            {{ __('Markets') }}
                         </a>
                         <a href="{{"/main/gas"}}" class="category">
                             {{ __('Gas stations') }}
                         </a><br>
-                        <label for="selectOrder" class="select">Sort by</label>
+                        <label for="selectOrder" class="select sortby   ">Sort by</label>
                         <select class="selectOrder" id="selectOrder" size="1" name="selectOrder">
-                            <option class="name" name="object_name" value="object_name">name</option>
-                            <option class="destination" name="destination" value="destination">destination</option>
-                            <option class="author" name="user_id" value="user_id">author</option>
+                            <option class="name option" name="object_name" value="object_name">name</option>
+                            <option class="destination option" name="destination" value="destination">destination</option>
+                            <option class="author option" name="user_id" value="user_id">author</option>
                         </select>
 
                         <button type="submit" class="sortButton" onclick="orderObjects()">Sort</button>

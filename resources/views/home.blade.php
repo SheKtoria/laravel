@@ -37,13 +37,13 @@
                                             type="none">{{$user->ex_information}}</li>
                                     @endforeach
                                 </ul>
-                                    <a href="{{"/update"}}" class="edit-button button btn btn-primary">
-                                        {{ __('Edit') }}
-                                    </a>
+                                <a href="{{route('update')}}" class="edit-button button btn btn-primary">
+                                    {{ __('Edit') }}
+                                </a>
                             </div>
                             <div class="cont">
                                 <div class="info">{{ __('Actions') }}</div>
-                                <a href="{{"/newobject"}}" class="edit-button button btn btn-primary">
+                                <a href="{{route('newobject')}}" class="edit-button button btn btn-primary">
                                     {{ __('Add new object') }}
                                 </a>
                             </div>
@@ -52,5 +52,8 @@
                 </div>
             </div>
         </div>
+        <example-component>
+
+        </example-component>
     </div>
 @endsection

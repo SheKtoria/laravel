@@ -12,6 +12,6 @@ class Objects extends Model
     protected $table = 'objects';
     public function users()
     {
-        return $this->belongsTo(\App\Models\User::class, 'user_id');
+        return $this->belongsTo(User::class, 'user_id');
     }
 }
