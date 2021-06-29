@@ -30,5 +30,6 @@ Route::post('newobject', [ObjectController::class, 'addObject']);
 Route::get('/change', [ObjectController::class, 'changeStatus']);
 Route::get('/sorting/{type}', [ObjectController::class, 'sorting']);
 Route::get('/main/{category}', [ObjectController::class, 'category']);
-Route::get('/chat', [ObjectController::class, 'category']);
+Route::get('/chat', [App\Http\Controllers\ChatController::class, 'index']);
+Route::post('chat', [App\Http\Controllers\ChatController::class, 'messageSend']);
 

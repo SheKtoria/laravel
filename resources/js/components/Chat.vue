@@ -21,7 +21,10 @@ export default {
         }
     },
     mounted () {
-                console.log('Component mounted')
+        window.Echo.channel('chat')
+            .listen('PublicChat', ({message}) => {
+                this.messages.push(message.body);
+            })
     },
 methods:{
     sendMessage(){

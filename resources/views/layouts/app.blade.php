@@ -69,6 +69,7 @@
                                 </a>
                                 <a href="{{ url('/home') }}" class="dropdown-item pageref">Home</a>
                                 <a href="{{ url('/users') }}" class="dropdown-item pageref">Users Table</a>
+                                <a href="{{ url('/chat') }}" class="dropdown-item pageref">Chats</a>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf

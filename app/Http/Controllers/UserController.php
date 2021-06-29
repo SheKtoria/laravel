@@ -26,7 +26,6 @@ class UserController extends Controller
      */
     public function index()
     {
-        \App\Events\PublicChat::dispatch('Get my message?');
         $id = auth()->id();
         $users = User::find($id)->get();
         return view('home', ['users' => $users]);
