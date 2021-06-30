@@ -23,7 +23,7 @@ export default {
     mounted () {
         window.Echo.channel('chat')
             .listen('PublicChat', ({message}) => {
-                this.messages.push(message.body);
+                this.messages.push(message);
             })
     },
 methods:{

@@ -6,6 +6,7 @@ use App\Http\Requests\ObjectRequest;
 use App\Http\Requests\UserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Events\PublicChat;
 
 class ChatController extends Controller
 {
@@ -14,6 +15,6 @@ class ChatController extends Controller
         return view('chat');
     }
     public function messageSend(Request $request){
-        App\Events\PublicChat::dispatch($request->input('body'));
+        PublicChat::dispatch($request->input('body'));
     }
 }
