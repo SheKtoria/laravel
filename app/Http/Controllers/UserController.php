@@ -6,6 +6,7 @@ use App\Http\Requests\ObjectRequest;
 use App\Http\Requests\UserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use function React\Promise\all;
 
 class UserController extends Controller
 {
@@ -14,10 +15,10 @@ class UserController extends Controller
      *
      * @return void
      */
-//    public function __construct()
-//    {
-//        $this->middleware('auth');
-//    }
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     /**
      * Show the application dashboard.
@@ -27,28 +28,22 @@ class UserController extends Controller
     public function index()
     {
         $id = auth()->id();
-        $users = User::find($id)->get();
-        return view('home', ['users' => $users]);
+        $user = User::find($id);
+        return view('home', ['user' => $user]);
     }
 
     public function showUpdateInfo()
     {
         $id = auth()->id();
-        $data = User::find($id)->get();
-        return view('update', ['data' => $data]);
+        $user = User::find($id);
+        return view('update', ['user' => $user]);
     }
 
     public function updateInfo(Request $request)
     {
         $id = auth()->id();
         $user = User::find($id);
-        $user->first_name = $request->input('firstName');
-        $user->last_name = $request->input('lastName');
-        $user->birthday = $request->input('birthday');
-        $user->address = $request->input('address');
-        $user->phone_number = $request->input('number');
-        $user->ex_information = $request->input('other');
-        $user->save();
+        $user->fill($request->all())->save();
         return redirect('home');
 
     }

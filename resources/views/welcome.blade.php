@@ -39,22 +39,22 @@
                                 <div class="row">
                                     <div class="col-md-3 objectColumns">
                                         <label for="name" class="col-md-3 col-form-label">{{ __('Name') }}</label>
-                                        <text class="objectData">{{$object->object_name}}</text>
+                                        <input class="objectData" value=" {{$object->object_name}}">
                                         <br>
                                         <label for="name" class="col-md-3 col-form-label">{{ __('Author') }}</label>
-                                        <text class="objectData">{{$object->users->name}}</text>
+                                        <input class="objectData" value=" {{$object->users->name}}">
                                     </div>
                                     <div class="col-md-5 objectColumns">
                                         <label for="name"
                                                class="col-md-4 col-form-label">{{ __('Destination') }}</label>
-                                        <text class="objectData">{{$object->destination}}</text>
+                                        <input class="objectData" value="{{$object->destination}}">
                                         <br>
                                         <label for="name"
                                                class="col-md-4 col-form-label">{{ __('Other Information') }}</label>
-                                        <text class="objectData">{{$object->other_info}}</text>
+                                        <input class="objectData" value="{{$object->other_info}}">
                                         <br>
                                         <label for="name" class="col-md-4 col-form-label">{{ __('Category') }}</label>
-                                        <text class="objectData">{{$object->category}}</text>
+                                        <input class="objectData" value="{{$object->category}}">
                                     </div>
                                     <div class="col-md-2 objectColumns">
                                         <label for="name"

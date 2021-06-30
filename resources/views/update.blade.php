@@ -7,7 +7,6 @@
 
             <form method="POST" action="">
                 @csrf
-                @foreach ($data as $user)
                     <div class="form-group row">
                         <label for="name"
                                class="col-md-4 col-form-label text-md-right registerLable">{{ __('First Name') }}</label>
@@ -85,7 +84,6 @@
 
                         </div>
                     </div>
-                @endforeach
                 <button type="submit" class="button edit">Edit</button>
             </form>
         </div>

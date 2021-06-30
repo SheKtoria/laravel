@@ -31,5 +31,7 @@ Route::get('/change', [ObjectController::class, 'changeStatus']);
 Route::get('/sorting/{type}', [ObjectController::class, 'sorting']);
 Route::get('/main/{category}', [ObjectController::class, 'category']);
 Route::get('/chat', [App\Http\Controllers\ChatController::class, 'index']);
-Route::post('chat', [App\Http\Controllers\ChatController::class, 'messageSend']);
+Route::post('messages', [App\Http\Controllers\ChatController::class, 'messageSend']);
+Route::get('/room/{room}', [App\Http\Controllers\ChatController::class, 'showRoom']);
+
 

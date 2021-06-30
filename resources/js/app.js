@@ -17,6 +17,7 @@ window.Vue = require('vue').default;
 //
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('chat', require('./components/Chat.vue').default);
+Vue.component('private-chat', require('./components/PrivateChat.vue').default);
 /*
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

@@ -16,10 +16,9 @@
                             <div class="map">
                                 <div class="info">{{ __('Personal information') }}</div>
                                 <ul class="list">
-                                    @foreach ($users as $user)
                                         <div class="titles">{{__("First Name")}}</div>
                                         <li class="personalInfoFirstname personalInfo" contenteditable="false" name="name"
-                                            type="none">{{$user->first_name}}</li>
+                                            type="none">{{ $user->first_name }}</li>
                                         <div class="titles">{{__("Last Name")}}</div>
                                         <li class="personalInfoLastname personalInfo" contenteditable="false" name="sss"
                                             type="none">{{$user->last_name}}</li>
@@ -35,7 +34,6 @@
                                         <div class="titles">{{__("Other information")}}</div>
                                         <li class="personalInfoOther personalInfo" contenteditable="false" name="naffme"
                                             type="none">{{$user->ex_information}}</li>
-                                    @endforeach
                                 </ul>
                                 <a href="{{route('update')}}" class="edit-button button btn btn-primary">
                                     {{ __('Edit') }}

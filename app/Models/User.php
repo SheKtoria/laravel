@@ -10,7 +10,8 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
-
+    protected $primaryKey = 'id';
+    protected $table = 'users';
     /**
      * The attributes that are mass assignable.
      *
@@ -51,5 +52,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(Objects::class, 'user_id');
     }
-
+    public function rooms()
+    {
+        return $this->belongsToMany(Room::class);
+    }
 }
