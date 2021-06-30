@@ -30,8 +30,9 @@ export default {
     methods: {
         sendMessage (userName) {
             if (this.textMessage.length >= 1) {
-                axios.post('/messages', { body: (userName + ':' + this.textMessage), room_id: this.room.id });
-                this.messages.push(this.textMessage);
+                console.log(userName)
+                axios.post('/messages', { body: this.textMessage, room_id: this.room.id });
+                this.messages.push(userName + ': ' + this.textMessage);
             }
             this.textMessage = '';
         },
