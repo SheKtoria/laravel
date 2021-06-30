@@ -61,7 +61,7 @@
                                 {{ Auth::user()->name }}
                             </a>
 
-                            <div class="dropdown-menu dropdown-menu-right personalNavigation" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-menu dropdown-menu-right personalNavigation" id =  aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item pageref" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

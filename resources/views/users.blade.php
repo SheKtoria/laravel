@@ -17,12 +17,15 @@
                         </tr>
                         @foreach ($users as $user)
                             <tr class="user_info">
-                                <td>{{$user->id}}</td>
+                                <td class="id" name="id">{{$user->id}}</td>
                                 <td>{{$user->first_name}}</td>
                                 <td>{{$user->last_name}}</td>
                                 <td>{{$user->birthday}}</td>
                                 <td>{{$user->address}}</td>
                                 <td>{{$user->ex_information}}</td>
+                                <td>
+                                    <button class="btn btn-color" onclick="startChat({{$user->id}}, {{(auth()->user())->id}})">Create chat</button>
+                                </td>
                             </tr>
                         @endforeach
                     </table>

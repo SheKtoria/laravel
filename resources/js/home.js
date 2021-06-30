@@ -27,3 +27,18 @@ function orderObjects() {
     let typeSelect = type.options[type.selectedIndex].value;
     document.location.href = '/sorting/' + typeSelect;
 }
+function startChat (userId, currentUserId)
+{
+    $.ajax({
+        url: '/start-chat',
+        type: 'get',
+        dataType: 'json',
+        data: {
+            'userId': userId,
+            'currentUserId': currentUserId,
+        },
+    }).done( function (users) {
+        console.log(users['user1']);
+        console.log(users['user2']);
+    })
+}

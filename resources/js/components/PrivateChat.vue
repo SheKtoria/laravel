@@ -4,9 +4,9 @@
         <hr>
         <div class="row">
             <div class="col-sm-12">
-                <textarea class='form-control' rows="10" readonly="">{{messages.join('/n')}}</textarea>
+                <textarea class='form-control' rows="10" readonly="">{{messages.join('\n')}}</textarea>
                 <hr>
-                <input type="text" class="form-control" v-model="textMessage" @keyup.enter="sendMessage">
+                <input type="text" class="form-control" v-model="textMessage" @keyup.enter="sendMessage(getUserName())">
             </div>
         </div>
     </div>
@@ -14,24 +14,30 @@
 
 <script>
 export default {
-    data(){
-        return{
+    props: ['room'],
+    data () {
+        return {
             messages: [],
             textMessage: ''
         }
     },
     mounted () {
-        window.Echo.private('room.2')
-            .listen('PrivateChat', ({data}) => {
+        window.Echo.private('room.' + this.room.id)
+            .listen('PrivateChat', ({ data }) => {
                 this.messages.push(data.body);
             })
     },
-methods:{
-    sendMessage(){
-        axios.post('/messages', {body: this.textMessage, room_id:2});
-        this.messages.push(this.textMessage);
-        this.textMessage = '';
+    methods: {
+        sendMessage (userName) {
+            if (this.textMessage.length >= 1) {
+                axios.post('/messages', { body: (userName + ':' + this.textMessage), room_id: this.room.id });
+                this.messages.push(this.textMessage);
+            }
+            this.textMessage = '';
+        },
+        getUserName () {
+            return document.getElementById('navbarDropdown').innerText;
+        }
     }
-}
 }
 </script>
