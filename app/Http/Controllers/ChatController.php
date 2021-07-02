@@ -25,19 +25,18 @@ class ChatController extends Controller
     {
         $user = auth()->user();
         $id = $user->id;
-        $roomList[] = $user->rooms()->pluck('id');
+        $roomList[] = $user->rooms;
         for ($i = 0; $i < count($roomList[0]); $i++) {
-            $allRooms[] = RoomUser::where('room_id', $roomList[0][$i])->get();
+            $allRooms[] = RoomUser::where('room_id', $roomList[0][$i]['room_id'])->get();
         }
-        for ($i = 0; $i < count($allRooms[0]); $i++) {
-            if ($allRooms[$i][0]['user_id'] === $id) {
+        for ($i = 0; $i < count($allRooms); $i++) {
+            if ($allRooms[$i][0]['user_id'] == $id) {
                 $secondUsers[] = User::where('id', $allRooms[$i][1]['user_id'])->get();
-            } elseif ($allRooms[$i][1]['user_id'] === $id) {
+            } elseif ($allRooms[$i][1]['user_id'] == $id) {
                 $secondUsers[] = User::where('id', $allRooms[$i][0]['user_id'])->get();
             }
         }
-
-        return view('chat', ['room' => $roomList[0], 'roomList' => $secondUsers]);
+        return view('chat', ['roomList' => $secondUsers]);
     }
 
     public function showRoom(Room $room)

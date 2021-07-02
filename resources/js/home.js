@@ -37,8 +37,9 @@ function startChat (userId, currentUserId)
             'userId': userId,
             'currentUserId': currentUserId,
         },
-    }).done( function (users) {
-        console.log(users['user1']);
-        console.log(users['user2']);
     })
+}
+function goToChat(roomId)
+{
+    document.location.href = '/room/' + roomId;
 }

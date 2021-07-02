@@ -1,19 +1,14 @@
 <template>
-
-    <div class="container">
+    <div class="container chat">
         <hr>
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="card">
-                    <div class="card-body">
-                <textarea class='form-control' rows="10" readonly="">{{messages.join('\n')}}</textarea>
-                <hr>
-                <input type="text" class="form-control" v-model="textMessage" @keyup.enter="sendMessage(getUserName())">
-            </div>
-                </div>
-            </div>
+        <div class="chatFieldRoom">
+            <textarea class='form-control chatText' rows="10" readonly="readonly">{{messages.join('\n')}}</textarea>
+            <hr>
+            <input type="text" class="form-control sendText" v-model="textMessage" placeholder="Input your text here"
+                   @keyup.enter="sendMessage(getUserName())">
         </div>
     </div>
+
 </template>
 
 <script>
@@ -28,20 +23,20 @@ export default {
     mounted () {
         window.Echo.private('room.' + this.room.id)
             .listen('PrivateChat', ({ data }) => {
-                this.messages.push(data.body);
+                this.messages.push(data.body)
             })
     },
     methods: {
         sendMessage (userName) {
             if (this.textMessage.length >= 1) {
 
-                axios.post('/messages', { body: (userName + ': ' + this.textMessage), room_id: this.room.id });
-                this.messages.push(userName + ': ' + this.textMessage);
+                axios.post('/messages', { body: (userName + ': ' + this.textMessage), room_id: this.room.id })
+                this.messages.push(userName + ': ' + this.textMessage)
             }
-            this.textMessage = '';
+            this.textMessage = ''
         },
         getUserName () {
-            return document.getElementById('navbarDropdown').innerText;
+            return document.getElementById('navbarDropdown').innerText
         }
     }
 }

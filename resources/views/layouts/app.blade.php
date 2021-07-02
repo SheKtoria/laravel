@@ -57,7 +57,7 @@
                         @endif
                     @else
                         <li class="nav-item dropdown ">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle pageref" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle pageref" href="#" readonly="" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
                             </a>
 
@@ -69,7 +69,7 @@
                                 </a>
                                 <a href="{{ url('/home') }}" class="dropdown-item pageref">Home</a>
                                 <a href="{{ url('/users') }}" class="dropdown-item pageref">Users Table</a>
-                                <a href="{{ url('/chat') }}" class="dropdown-item pageref">Chats</a>
+                                <a href="{{ url('/room') }}" class="dropdown-item pageref">Chats</a>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf

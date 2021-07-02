@@ -16,16 +16,7 @@ body {
     border-radius: 15px !important;
     margin-top: 0px;
 }
-.chat-body{
-    margin-top: 65px;
-    margin-bottom: 50px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 650px;
-    height: 835px;
-    border-radius: 15px !important;
-    background: #5ab9ff;
-}
+
 .pageref {
     color: #9985b4;
 }
@@ -85,7 +76,6 @@ body {
     font-weight: bold;
     cursor: pointer;
 }
-
 .button:hover {
     background: #472861;
 }
@@ -331,3 +321,48 @@ body {
     border-radius: 26px!important;
 
 }
+.chatWindow{
+    margin-top: 5px;
+background: #2e2938;
+    width: 1300px;
+}
+.user-list-chat{
+    height: 690px;
+    margin-left: 50px;
+    border-radius: 26px;
+    border: none;
+    padding: 20px;
+    background: #625376;
+}
+.chatField{
+    margin-left: 40px;
+    width: 800px;
+    border: none!important;
+    background: #2e2938;
+}
+.chatText{
+    background: #625376!important;
+    height: 615px!important;
+    resize: none;
+    border: none;
+    border-radius: 20px;
+    color: #1d2124;
+}
+.sendText{
+    background: #625376;
+    border: none;
+    border-radius: 20px;
+    color: #1d2124;
+}
+.sendText:focus{
+    background: #625376;
+    color: #1d2124;
+}
+.chatFieldRoom{
+    margin-top: -15px;
+    margin-left: 15px;
+    width: 800px;
+    border: none!important;
+    background: #2e2938;
+}
+
