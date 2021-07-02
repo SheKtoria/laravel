@@ -8,7 +8,7 @@ class RoomUser extends Model
     protected $table = 'room_user';
     public function users()
     {
-        return $this->hasMany(User::class, 'id' , 'user_id');
+        return $this->belongsToMany(User::class, 'id' , 'user_id');
     }
 
 }

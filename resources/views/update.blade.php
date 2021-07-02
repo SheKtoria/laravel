@@ -12,7 +12,7 @@
                                class="col-md-4 col-form-label text-md-right registerLable">{{ __('First Name') }}</label>
 
                         <div class="col-md-6 ">
-                            <input class="form-control field firstName" name="firstName" type="text"
+                            <input class="form-control field firstName" name="first_name" type="text"
                                    value="{{$user->first_name}}">
                             @error('firstName')
                             <span role="alert">
@@ -26,7 +26,7 @@
                                class="col-md-4 col-form-label text-md-right registerLable">{{ __('Last Name') }}</label>
 
                         <div class="col-md-6 ">
-                            <input class=" form-control field lastName" name="lastName" type="text"
+                            <input class=" form-control field lastName" name="last_name" type="text"
                                    value="{{$user->last_name}}">
                             @error('lastName')
                             <span role="alert">
@@ -64,7 +64,7 @@
                                class="col-md-4 col-form-label text-md-right registerLable">{{ __('Phone Number') }}</label>
 
                         <div class="col-md-6 ">
-                            <input class="number form-control field" name="number" type="text"
+                            <input class="number form-control field" name="phone_number" type="text"
                                    value="{{$user->phone_number}}">
                             @error('number')
                             <span role="alert">
@@ -79,7 +79,7 @@
                                class="col-md-4 col-form-label text-md-right registerLable">{{ __('Other Information') }}</label>
 
                         <div class="col-md-6 ">
-                            <input class="other form-control field" name="other" type="text"
+                            <input class="other form-control field" name="ex_information" type="text"
                                    value="{{$user->ex_information}}">
 
                         </div>

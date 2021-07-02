@@ -4,9 +4,13 @@
         <hr>
         <div class="row">
             <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-body">
                 <textarea class='form-control' rows="10" readonly="">{{messages.join('\n')}}</textarea>
                 <hr>
                 <input type="text" class="form-control" v-model="textMessage" @keyup.enter="sendMessage(getUserName())">
+            </div>
+                </div>
             </div>
         </div>
     </div>
@@ -30,8 +34,8 @@ export default {
     methods: {
         sendMessage (userName) {
             if (this.textMessage.length >= 1) {
-                console.log(userName)
-                axios.post('/messages', { body: this.textMessage, room_id: this.room.id });
+
+                axios.post('/messages', { body: (userName + ': ' + this.textMessage), room_id: this.room.id });
                 this.messages.push(userName + ': ' + this.textMessage);
             }
             this.textMessage = '';

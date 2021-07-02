@@ -17,6 +17,17 @@ body {
   margin-top: 0px;
 }
 
+.chat-body {
+  margin-top: 65px;
+  margin-bottom: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 650px;
+  height: 835px;
+  border-radius: 15px !important;
+  background: #5ab9ff;
+}
+
 .pageref {
   color: #9985b4;
 }

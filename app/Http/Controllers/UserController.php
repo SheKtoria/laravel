@@ -43,7 +43,9 @@ class UserController extends Controller
     {
         $id = auth()->id();
         $user = User::find($id);
-        $user->fill($request->all())->save();
+        $user->update($request->all());
+        $user->save();
+//        return new User();
         return redirect('home');
 
     }
