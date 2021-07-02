@@ -8,14 +8,10 @@ use Illuminate\Support\Facades\DB;
 class Room extends Model
 {
     use HasFactory;
-    protected $guarded =[];
+    protected $guarded = [];
     protected $table = 'rooms';
     public function users()
     {
-        return $this->hasMany(User::class, 'id', 'user_id');
-    }
-    public function userRoom()
-    {
-        return $this->hasOne(RoomUser::class);
+        return $this->belongsToMany(User::class);
     }
 }

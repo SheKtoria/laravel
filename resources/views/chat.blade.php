@@ -5,6 +5,8 @@
             <div class="card chatWindow">
                 <div class="card-header">{{ __('Chats') }}
                 </div>
+                @if ($roomList !== null)
+                    @auth
                 <div class="row chat-card-inner">
                     <div class="user-list-chat">
                         <table>
@@ -13,7 +15,7 @@
                                     <td class="chat-button-{{$roomList[$i][0]->name}}">
                                         <button class="button" id="btn-chat"
                                                 value="{{$roomList[$i][0]->name}}"
-                                                onclick="goToChat({{auth()->user()->rooms[0]->room_id}})"
+                                                onclick="goToChat({{auth()->user()->rooms[$i]->id}})"
                                         >{{$roomList[$i][0]->name}}</button>
                                     </td>
                                 </tr>
@@ -23,9 +25,15 @@
                         <div class="chatField">
                             <textarea class='form-control chatText' rows="10" readonly="readonly"></textarea>
                             <hr>
-                            <input type="text" class="form-control sendText" value="Input your text here">
+                            <input type="text" class="form-control sendText" placeholder="Input your text here">
                     </div>
                 </div>
+                    @endauth
+                @else
+                    <div class="chat-dont-created">
+                        You haven't created any chat yet
+                    </div>
+                @endif
             </div>
         </div>
     </div>

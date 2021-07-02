@@ -1,5 +1,5 @@
 <template>
-    <div class="container chat">
+    <div class="container">
         <hr>
         <div class="chatFieldRoom">
             <textarea class='form-control chatText' rows="10" readonly="readonly">{{messages.join('\n')}}</textarea>
