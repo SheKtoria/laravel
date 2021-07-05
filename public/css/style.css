@@ -363,6 +363,10 @@ body {
   color: #1d2124;
 }
 
+.chatText:focus {
+  color: #1d2124;
+}
+
 .sendText {
   background: #625376;
   border: none;

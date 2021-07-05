@@ -24,7 +24,7 @@
                                 <td>{{$user->address}}</td>
                                 <td>{{$user->ex_information}}</td>
                                 <td>
-                                    <button class="btn btn-color" onclick="startChat({{$user->id}}, {{(auth()->user())->id}})">Create chat</button>
+                                    <button class="button" onclick="startChat({{$user->id}}, {{(auth()->user())->id}})">Create chat</button>
                                 </td>
                             </tr>
                         @endforeach

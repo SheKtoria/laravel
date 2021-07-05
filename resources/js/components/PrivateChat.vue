@@ -17,7 +17,8 @@ export default {
     data () {
         return {
             messages: [],
-            textMessage: ''
+            textMessage: '',
+        allData: ''
         }
     },
     mounted () {
@@ -26,18 +27,26 @@ export default {
                 this.messages.push(data.body)
             })
     },
+    created () {
+        if(this.room.messages !== null) {
+            this.messages.push(this.room.messages);
+        }
+    },
     methods: {
         sendMessage (userName) {
-            if (this.textMessage.length >= 1) {
-
-                axios.post('/messages', { body: (userName + ': ' + this.textMessage), room_id: this.room.id })
+            if (this.textMessage.length) {
+                axios.post('/messages', {
+                    body: (userName + ': ' + this.textMessage ),
+                    room_id: this.room.id
+                })
                 this.messages.push(userName + ': ' + this.textMessage)
             }
             this.textMessage = ''
         },
         getUserName () {
             return document.getElementById('navbarDropdown').innerText
-        }
+        },
+
     }
 }
 </script>
