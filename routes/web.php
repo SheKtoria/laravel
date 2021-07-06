@@ -21,6 +21,7 @@ use App\Http\Controllers\ObjectController;
 Route::get('/', [ObjectController::class, 'welcome']);
 
 Auth::routes();
+
 Route::get('/users', [UserController::class, 'showUsers']);
 Route::get('/home', [UserController::class, 'index'])->name('home');
 Route::get('/update', [UserController::class, 'showUpdateInfo'])->name('update');
@@ -32,7 +33,9 @@ Route::get('/sorting/{type}', [ObjectController::class, 'sorting']);
 Route::get('/main/{category}', [ObjectController::class, 'category']);
 Route::get('/room', [App\Http\Controllers\ChatController::class, 'chatList']);
 Route::post('messages', [App\Http\Controllers\ChatController::class, 'messageSend']);
+Route::post('allmessages', [App\Http\Controllers\ChatController::class, 'getAllMessages']);
 Route::get('/room/{room}', [App\Http\Controllers\ChatController::class, 'showRoom'])->name('chat');
 Route::get('/start-chat',  [App\Http\Controllers\ChatController::class, 'startChat']);
+Route::get('get-location', [UserController::class, 'getLocation']);
 
 

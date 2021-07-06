@@ -10,6 +10,7 @@ class Room extends Model
     use HasFactory;
     protected $guarded = [];
     protected $table = 'rooms';
+    public $timestamps = false;
     public function users()
     {
         return $this->belongsToMany(User::class);

@@ -24,20 +24,30 @@ class ChatController extends Controller
         $message = new Messages();
         $message->room_id = $room->id;
         $message->messages = $request->input('body');
+        $message->sender_id = auth()->id();
         $message->save();
         PrivateChat::dispatch($request->all());
     }
 
+    public function getAllMessages(Request $request){
+        $room = Room::find($request->input('room_id'));
+        $messages = $room->messages;
+        foreach ($messages as $message) {
+            $message['sender_id'] = User::find($message['sender_id'])->name;
+        }
+
+        return json_encode($messages);
+    }
     public function chatList()
     {
-        $secondUsers= $this->checkRooms();
+        $secondUsers= $this->isExistRoom();
         return view('chat', ['roomList' => $secondUsers]);
 
     }
 
     public function showRoom(Room $room)
     {
-        $secondUsers= $this->checkRooms();
+        $secondUsers= $this->isExistRoom();
         return view('room', ['room' => $room, 'roomList' => $secondUsers]);
 
     }
@@ -66,7 +76,7 @@ class ChatController extends Controller
         }
         return json_encode(['user1' => $first, 'user2' => $second]);
     }
-    private function checkRooms()
+    private function isExistRoom()
     {
         $user = auth()->user();
         $id = $user->id;

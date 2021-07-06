@@ -15,6 +15,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
             crossorigin="anonymous"></script>
+    <script type="application/javascript" src="https://api.ipify.org?format=jsonp&callback=getIP"></script>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -30,7 +31,10 @@
             <a class="navbar-brand pageref" href="{{ url('/') }}">
                 Objects
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+            <a href="{{ url('/users') }}" class="navbar-brand pageref">Users Table</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="{{ __('Toggle navigation') }}">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
@@ -57,19 +61,19 @@
                         @endif
                     @else
                         <li class="nav-item dropdown ">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle pageref" href="#" readonly="" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle pageref" href="#" readonly=""
+                               role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
                             </a>
-
-                            <div class="dropdown-menu dropdown-menu-right personalNavigation" id =  aria-labelledby="navbarDropdown">
+                            <div class="dropdown-menu dropdown-menu-right personalNavigation"
+                                 id=aria-labelledby="navbarDropdown">
+                                <a href="{{ url('/home') }}" class="dropdown-item pageref">Home</a>
+                                <a href="{{ url('/room') }}" class="dropdown-item pageref">Chats</a>
                                 <a class="dropdown-item pageref" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
-                                <a href="{{ url('/home') }}" class="dropdown-item pageref">Home</a>
-                                <a href="{{ url('/users') }}" class="dropdown-item pageref">Users Table</a>
-                                <a href="{{ url('/room') }}" class="dropdown-item pageref">Chats</a>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf

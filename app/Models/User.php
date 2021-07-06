@@ -24,7 +24,6 @@ class User extends Authenticatable
         'first_name',
         'last_name',
         'birthday',
-        'address',
         'phone_number',
         'ex_information'
     ];
@@ -59,5 +58,9 @@ class User extends Authenticatable
     public function roomuser()
     {
         return $this->belongsToMany(RoomUser::class);
+    }
+    public function message()
+    {
+        return $this->hasMany(Messages::class);
     }
 }

@@ -43,3 +43,7 @@ function goToChat(roomId)
 {
     document.location.href = '/room/' + roomId;
 }
+function getIP(json) {
+    var event = new CustomEvent('iploaded', { detail: json.ip });
+    document.dispatchEvent(event);
+}

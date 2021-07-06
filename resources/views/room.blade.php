@@ -4,23 +4,24 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="card chatWindow">
-                <div class="card-header">{{ __('Chats') }}
+                <div class="card-header">{{ __('Chat') }}
                 </div>
-                @if ($roomList !== null)
+                @if (!empty($roomList))
                     @auth
                         <div class="row chat-card-inner">
                             <div class="user-list-chat">
                                 <table>
-                                    @for ($i = 0; $i < count($roomList); $i++)
+                                    @foreach ($roomList as $key => $rl)
                                         <tr>
-                                            <td class="chat-button-{{$roomList[$i][0]->name}}">
+                                            <td class="chat-button-{{$rl[0]->name}}">
                                                 <button class="button" id="btn-chat"
-                                                        value="{{$roomList[$i][0]->name}}"
-                                                        onclick="goToChat({{auth()->user()->rooms[$i]->id}})"
-                                                >{{$roomList[$i][0]->name}}</button>
+                                                        value="{{$rl[0]->name}}"
+                                                        onclick="goToChat({{auth()->user()->rooms[$key]->id}})"
+                                                >{{$rl[0]->name}}</button>
                                             </td>
                                         </tr>
-                                    @endfor
+                                        @endforeach
+
                                 </table>
                             </div>
                             <div>

@@ -1,5 +1,7 @@
+var ip;
 function changeObjectStatus(id)
 {
+
     let status =$('.status' + id).val();
     if (status === 'save') {
         changeStatus(id ,'not save');
@@ -8,6 +10,7 @@ function changeObjectStatus(id)
     }
 
     function changeStatus(id ,status){
+
         $.ajax({
             url: '/change',
             type: 'get',
@@ -46,3 +49,16 @@ function goToChat(roomId)
 {
     document.location.href = '/room/' + roomId;
 }
+
+function getIP(json) {
+    ip = json.ip;
+    $.ajax({
+        url: 'get-location',
+        type:'get',
+        dataType: 'json',
+        data: {
+            'ip': json.ip,
+        }
+    })
+}
+

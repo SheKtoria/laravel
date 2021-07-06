@@ -21,6 +21,20 @@
                             @enderror
                         </div>
                     </div>
+                <div class="form-group row">
+                    <label for="name"
+                           class="col-md-4 col-form-label text-md-right registerLable">{{ __('Username') }}</label>
+
+                    <div class="col-md-6 ">
+                        <input class="form-control field firstName" name="name" type="text"
+                               value="{{$user->name}}">
+                        @error('name')
+                        <span role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                        @enderror
+                    </div>
+                </div>
                     <div class="form-group row">
                         <label for="name"
                                class="col-md-4 col-form-label text-md-right registerLable">{{ __('Last Name') }}</label>
@@ -45,20 +59,7 @@
 
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <label for="name"
-                               class="col-md-4 col-form-label text-md-right registerLable">{{ __('Address') }}</label>
 
-                        <div class="col-md-6 ">
-                            <input class="address form-control field" name="address" type="text"
-                                   value="{{$user->address}}">
-                            @error('address')
-                            <span role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                            @enderror
-                        </div>
-                    </div>
                     <div class="form-group row">
                         <label for="name"
                                class="col-md-4 col-form-label text-md-right registerLable">{{ __('Phone Number') }}</label>
