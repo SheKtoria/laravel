@@ -6,7 +6,6 @@ use App\Http\Requests\ObjectRequest;
 use App\Http\Requests\UserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
-use function React\Promise\all;
 
 class UserController extends Controller
 {
@@ -34,36 +33,32 @@ class UserController extends Controller
     }
     public function getLocation(Request $request)
     {
-        $result = file_get_contents('http://api.ipapi.com/' .$request->input('ip') .'?access_key=608be249c170a6cdbcb7a69cbf44bd1b&format=1');
+        $result = file_get_contents('http://api.ipapi.com/' . $request->input('ip') . '?access_key=608be249c170a6cdbcb7a69cbf44bd1b&format=1');
         $json_object = json_decode($result);
-        $id = auth()->id();
-        $user = User::find($id);
-        $user->location = $json_object->latitude.','.$json_object->longitude;
+        $user = User::find(auth()->id());
+        $user->latitude = $json_object->latitude;
+        $user->longitude = $json_object->longitude;
         $user->address = $json_object->city;
         $user->save();
-        return json_encode($request);
+
+        return response()->json($user);
     }
     public function showUpdateInfo()
     {
-        $id = auth()->id();
-        $user = User::find($id);
-        return view('update', ['user' => $user]);
+        return view('update', ['user' => auth()->user()]);
     }
 
-    public function updateInfo(Request $request)
+    public function updateInfo(UserRequest $request)
     {
-        $id = auth()->id();
-        $user = User::find($id);
-        $user->update($request->all());
-        $user->save();
-//        return new User();
-        return redirect('home');
+        auth()->user()
+            ->fill($request->all())
+            ->update();
 
+        return redirect('home');
     }
 
     public function showUsers()
     {
-        $users = User::all();
-        return view('users', ['users' => $users]);
+        return view('users', ['users' => User::all()]);
     }
 }

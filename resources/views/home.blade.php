@@ -16,24 +16,24 @@
                             <div class="map">
                                 <div class="info">{{ __('Personal information') }}</div>
                                 <ul class="list">
-                                        <div class="titles">{{__("First Name")}}</div>
-                                        <li class="personalInfoFirstname personalInfo" contenteditable="false" name="name"
-                                            type="none">{{ $user->first_name }}</li>
-                                        <div class="titles">{{__("Last Name")}}</div>
-                                        <li class="personalInfoLastname personalInfo" contenteditable="false" name="sss"
-                                            type="none">{{$user->last_name}}</li>
-                                        <div class="titles">{{__("Birthday")}}</div>
-                                        <li class="personalInfoBirthday personalInfo" contenteditable="false" name="dd"
-                                            type="none">{{$user->birthday}}</li>
-                                        <div class="titles">{{__("Address")}}</div>
-                                        <li class="personalInfoAddress personalInfo" contenteditable="false" name="naffme"
-                                            type="none">{{$user->address}}</li>
-                                        <div class="titles">{{__("Phone number")}}</div>
-                                        <li class="personalInfoNumber personalInfo" contenteditable="false" name="naffme"
-                                            type="none">{{$user->phone_number}}</li>
-                                        <div class="titles">{{__("Other information")}}</div>
-                                        <li class="personalInfoOther personalInfo" contenteditable="false" name="naffme"
-                                            type="none">{{$user->ex_information}}</li>
+                                    <div class="titles">{{__("First Name")}}</div>
+                                    <li class="personalInfoFirstname personalInfo" contenteditable="false"
+                                        type="none">{{ $user->first_name }}</li>
+                                    <div class="titles">{{__("Last Name")}}</div>
+                                    <li class="personalInfoLastname personalInfo" contenteditable="false"
+                                        type="none">{{$user->last_name}}</li>
+                                    <div class="titles">{{__("Birthday")}}</div>
+                                    <li class="personalInfoBirthday personalInfo" contenteditable="false"
+                                        type="none">{{$user->birthday}}</li>
+                                    <div class="titles">{{__("Address")}}</div>
+                                    <li class="personalInfoAddress personalInfo" contenteditable="false"
+                                        type="none">{{$user->address}}</li>
+                                    <div class="titles">{{__("Phone number")}}</div>
+                                    <li class="personalInfoNumber personalInfo" contenteditable="false"
+                                        type="none">{{$user->phone_number}}</li>
+                                    <div class="titles">{{__("Other information")}}</div>
+                                    <li class="personalInfoOther personalInfo" contenteditable="false"
+                                        type="none">{{$user->ex_information}}</li>
                                 </ul>
                                 <a href="{{route('update')}}" class="edit-button button btn btn-primary">
                                     {{ __('Edit') }}
@@ -44,6 +44,8 @@
                                 <a href="{{route('newobject')}}" class="edit-button button btn btn-primary">
                                     {{ __('Add new object') }}
                                 </a>
+                                <a class=" edit-button button btn btn-primary"
+                                   href="{{url('https://www.google.ru/maps/@' . $user->latitude . ',' . $user->longitude . ',19z')}}">{{ __('Show location') }}</a>
                             </div>
                         </div>
                     </div>
