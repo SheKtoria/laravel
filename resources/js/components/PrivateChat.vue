@@ -2,7 +2,7 @@
     <div class="container">
         <hr>
         <div class="chatFieldRoom">
-            <textarea id = 'private-chat' class='form-control chatText' rows="10" readonly="readonly">{{messages.join('\n')}}</textarea>
+            <textarea id='private-chat' class='form-control chatText' rows="10" readonly="readonly">{{messages.join('\n')}}</textarea>
             <hr>
             <input type="text" class="form-control sendText" v-model="textMessage" placeholder="Input your text here"
                    @keyup.enter="sendMessage(getUserName())">
@@ -18,7 +18,7 @@ export default {
         return {
             messages: [],
             textMessage: '',
-        allData: []
+            allData: []
         }
     },
     mounted () {
@@ -26,16 +26,16 @@ export default {
             .listen('PrivateChat', ({ data }) => {
                 this.messages.push(data.body)
             })
-        setTimeout( this.updateScroll, 400);
+        setTimeout(this.updateScroll, 500)
     },
     created () {
-        this.allData = this.getAllMessages();
+        this.allData = this.getAllMessages()
     },
     methods: {
         sendMessage (userName) {
             if (this.textMessage.length) {
                 axios.post('/messages', {
-                    body: (this.textMessage ),
+                    body: (this.textMessage),
                     room_id: this.room.id
                 })
                 this.messages.push(userName + ': ' + this.textMessage)
@@ -46,21 +46,21 @@ export default {
         getUserName () {
             return document.getElementById('navbarDropdown').innerText
         },
-        getAllMessages(){
-            axios.post('/allmessages', {
+        getAllMessages () {
+            axios.post('/allMessages', {
                 room_id: this.room.id,
             }).then(data => {
                 for (let i = 0; i < data.data.length; i++) {
-                    this.messages.push( data.data[i].sender_id + ': ' + data.data[i].messages);
+                    this.messages.push(data.data[i].sender_id + ': ' + data.data[i].messages)
 
                 }
-            });
+            })
         },
         updateScroll (id = 'private-chat') {
-            var div = document.getElementById(id);
+            var div = document.getElementById(id)
             $('#' + id).animate({
                 scrollTop: div.scrollHeight - div.clientHeight + 100
-            }, 800);
+            }, 800)
         },
 
     }

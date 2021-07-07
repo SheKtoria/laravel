@@ -34,6 +34,7 @@
                         </select>
 
                         <button type="submit" class="sortButton" onclick="orderObjects()">Sort</button>
+
                         @foreach($objects as $object)
                             <div class="objectInfo">
                                 <div class="row">
@@ -69,7 +70,7 @@
                                     </div>
                                 </div>
                             </div>
-                        @endforeach
+                            @endforeach
                     </div>
                 </div>
             </div>

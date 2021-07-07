@@ -153,7 +153,21 @@ readonly{
     border: none;
     font-family: "Segoe UI";
 }
-
+.userPersonalInfo {
+    margin-top: 5px;
+    margin-left: 450px;
+    color: #1f1f1f;
+    font-size: 16px;
+    border-radius: 15px 15px 15px 15px;
+    background: #625376;
+    width: 640px;
+    height: 37px;
+    border: none;
+    font-family: "Segoe UI";
+}
+td {
+    width: 22% ;
+}
 .info {
     color: #a493b9;
     font-size: 28px;
@@ -171,7 +185,12 @@ readonly{
     margin-left: 20px;
     padding: 5px;
 }
-
+.userTitles{
+    margin-top: 10px ;
+    color: #939393;
+    margin-left: -50px;
+    padding: 5px;
+}
 .card-header-edit {
     background: #2e2938;
     height: 100px;
@@ -321,10 +340,10 @@ readonly{
     height: 50px;
     font-family: "Segoe UI";
     font-weight: bold;
-    font-size: 15px;
+    font-size: 17px;
     text-align: center;
-    color: #cbc4ef;
-    background: #aa92c6;
+    color: #1e2024;
+    background: #625376;
     border-radius: 26px!important;
 
 }

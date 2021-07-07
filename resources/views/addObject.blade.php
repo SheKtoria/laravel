@@ -56,13 +56,13 @@
                     <div class="col-md-6 ">
                         <select class="selectCategory " size="1" name="selectCategory">
                             @foreach ($categories as $category)
-                                <option class="optionCategory"> {{$category->category}}</option>
+                                <option class="optionCategory"> {{$category->id . ' ' . $category->category}}</option>
                             @endforeach
                         </select>
                     </div>
 
                 </div>
-                <button type="submit" class="button edit">Add</button>
+                <button type="submit" class="button edit" >Add</button>
             </form>
         </div>
     </div>

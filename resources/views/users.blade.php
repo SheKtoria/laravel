@@ -11,20 +11,21 @@
                             <th>№</th>
                             <th>First Name</th>
                             <th>Last Name</th>
-                            <th>Birthday</th>
                             <th>Address</th>
-                            <th>Ex Information</th>
+                            <th>Profile</th>
+                            <th>Chat</th>
                         </tr>
                         @foreach ($users as $user)
                             <tr class="user_info">
                                 <td class="id" name="id">{{$user->id}}</td>
                                 <td>{{$user->first_name}}</td>
                                 <td>{{$user->last_name}}</td>
-                                <td>{{$user->birthday}}</td>
                                 <td>{{$user->address}}</td>
-                                <td>{{$user->ex_information}}</td>
                                 <td>
-                                    <button class="button" onclick="startChat({{$user->id}}, {{(auth()->user())->id}})">Create chat</button>
+                                    <a class="button" href="{{'/user-profile/'.$user->id}}" ><i class="fas fa-id-card-alt"></i></a>
+                                </td>
+                                <td>
+                                    <button class="button" onclick="startChat({{$user->id}}, {{(auth()->user())->id}})"><i class="fas fa-paper-plane"></i></button>
                                 </td>
                             </tr>
                         @endforeach

@@ -6,7 +6,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ObjectController;
-
+use App\Http\Controllers\MailController;
+use App\Http\Controllers\ChatController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,21 +22,24 @@ use App\Http\Controllers\ObjectController;
 Route::get('/', [ObjectController::class, 'welcome']);
 
 Auth::routes();
-
+Route::get('/user-profile/{user_id}', [UserController::class, 'goToUserProfile']);
 Route::get('/users', [UserController::class, 'showUsers']);
 Route::get('/home', [UserController::class, 'index'])->name('home');
-Route::get('/update', [UserController::class, 'showUpdateInfo'])->name('update');
+Route::get('/update', [UserController::class, 'showUpdateInfo'])->name('updateUser');
 Route::post('update', [UserController::class, 'updateInfo']);
-Route::get('/newobject', [ObjectController::class, 'index'])->name('newobject');
-Route::post('newobject', [ObjectController::class, 'addObject']);
-Route::get('/change', [ObjectController::class, 'changeStatus']);
+Route::get('get-location', [UserController::class, 'getLocation']);
+
+Route::get('/newObject', [ObjectController::class, 'index'])->name('newObject');
+Route::post('newObject', [ObjectController::class, 'addObject']);
+Route::get('/changeStatus', [ObjectController::class, 'changeStatus']);
 Route::get('/sorting/{type}', [ObjectController::class, 'sorting']);
 Route::get('/main/{category}', [ObjectController::class, 'category']);
-Route::get('/room', [App\Http\Controllers\ChatController::class, 'chatList']);
-Route::post('messages', [App\Http\Controllers\ChatController::class, 'messageSend']);
-Route::post('allmessages', [App\Http\Controllers\ChatController::class, 'getAllMessages']);
-Route::get('/room/{room}', [App\Http\Controllers\ChatController::class, 'showRoom'])->name('chat');
-Route::get('/start-chat',  [App\Http\Controllers\ChatController::class, 'startChat']);
-Route::get('get-location', [UserController::class, 'getLocation']);
+
+Route::get('/room', [ChatController::class, 'chatList']);
+Route::post('messages', [ChatController::class, 'messageSend']);
+Route::post('allMessages', [ChatController::class, 'getAllMessages']);
+Route::get('/room/{room}', [ChatController::class, 'showRoom'])->name('chat');
+Route::get('/start-chat',  [ChatController::class, 'startChat']);
+
 
 

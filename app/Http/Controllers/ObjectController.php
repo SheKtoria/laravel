@@ -3,6 +3,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ObjectRequest;
 use App\Models\Categories;
 use App\Models\Objects;
 use Illuminate\Http\Request;
@@ -16,20 +17,19 @@ class ObjectController extends Controller
 
     public function index()
     {
-        $categories = Categories::all();
-        return view('addObject', ['categories' => $categories]);
+        return view('addObject', ['categories' => Categories::all()]);
     }
 
     public function addObject(Request $request)
     {
-        $id = auth()->id();
         $object = new Objects();
+        $category = explode(' ', $request->input('selectCategory'));
         $object->object_name = $request->input('objectName');
         $object->destination = $request->input('destination');
         $object->contact_info = $request->input('contact');
         $object->other_info = $request->input('otherInfo');
-        $object->category = $request->input('selectCategory');
-        $object->user_id = $id;
+        $object->category = $category[0];
+        $object->user_id = auth()->id();
         $object->save();
 
         return redirect('home');
@@ -48,9 +48,9 @@ class ObjectController extends Controller
 
     public function welcome()
     {
-        $data = Objects::with('users')->get();
-
-        return view('welcome', ['objects' => $data]);
+        return view('welcome', ['objects' => Objects::with('users')
+            ->join('categories', 'categories.id', '=', 'objects.category')
+            ->get()]);
     }
 
     public function category($category)
@@ -64,7 +64,6 @@ class ObjectController extends Controller
 
     public function sorting($type)
     {
-        $data = Objects::orderby($type)->get();
-        return view('welcome', ['objects' => $data]);
+        return view('welcome', ['objects' => Objects::orderby($type)->get()]);
     }
 }

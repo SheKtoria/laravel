@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Requests;
-use Illuminate\Http\Request;
+
 use Illuminate\Foundation\Http\FormRequest;
 
-class UserRequest extends Request
+class UserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,10 +25,10 @@ class UserRequest extends Request
     {
 
         return [
-            'number'    => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|max:11',
-            'firstName' => 'required|string|min:1|max:15',
-            'lastName'  => 'required|string|min:1|max:15',
-            'address'   => 'required|regex:/(^[-0-9A-Za-z.,\/ ]+$)/',
+            'first_name' => 'required|string|min:1|max:15',
+            'last_name'  => 'required|string|min:1|max:15',
+            'birthday'   => 'required',
+            'phone_number' => 'required|min:11|numeric',
         ];
     }
 }

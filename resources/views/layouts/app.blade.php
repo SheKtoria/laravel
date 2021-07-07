@@ -16,6 +16,7 @@
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
             crossorigin="anonymous"></script>
     <script type="application/javascript" src="https://api.ipify.org?format=jsonp&callback=getIP"></script>
+    <script src="https://kit.fontawesome.com/8e4d5da29c.js" crossorigin="anonymous"></script>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">

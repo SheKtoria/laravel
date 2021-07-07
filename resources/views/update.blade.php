@@ -85,7 +85,7 @@
 
                         </div>
                     </div>
-                <button type="submit" class="button edit">Edit</button>
+                <button type="submit" class="button edit" >Edit</button>
             </form>
         </div>
     </div>

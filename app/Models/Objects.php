@@ -14,4 +14,8 @@ class Objects extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+    public function categories()
+    {
+        return $this->belongsTo(Categories::class, 'category');
+    }
 }

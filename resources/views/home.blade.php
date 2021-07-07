@@ -35,13 +35,13 @@
                                     <li class="personalInfoOther personalInfo" contenteditable="false"
                                         type="none">{{$user->ex_information}}</li>
                                 </ul>
-                                <a href="{{route('update')}}" class="edit-button button btn btn-primary">
+                                <a href="{{route('updateUser')}}" class="edit-button button btn btn-primary">
                                     {{ __('Edit') }}
                                 </a>
                             </div>
                             <div class="cont">
                                 <div class="info">{{ __('Actions') }}</div>
-                                <a href="{{route('newobject')}}" class="edit-button button btn btn-primary">
+                                <a href="{{route('newObject')}}" class="edit-button button btn btn-primary">
                                     {{ __('Add new object') }}
                                 </a>
                                 <a class=" edit-button button btn btn-primary"

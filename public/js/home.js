@@ -12,7 +12,7 @@ function changeObjectStatus(id)
     function changeStatus(id ,status){
 
         $.ajax({
-            url: '/change',
+            url: '/changeStatus',
             type: 'get',
             dataType: 'json',
             data: {
