@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\SendMail;
 use App\Http\Requests\ObjectRequest;
 use App\Http\Requests\UserRequest;
 use App\Mail\Mail;
@@ -50,18 +51,12 @@ class UserController extends Controller
     public function updateInfo(UserRequest $request)
     {
         $article = auth()->user();
-        auth()->user()->email;
         $article->fill($request->all());
-        $article->getDirty();
         if ($article->getDirty() == null) {
             return redirect('home');
         }
         auth()->user()->update();
-        $details = [
-            'title' => 'Changing information',
-            'body'  => 'Your personal info was successfully updated.'
-        ];
-        \Mail::to(auth()->user()->email)->send(new Mail($details));
+        event(new SendMail(auth()->user()));
         return redirect('home');
     }
 
